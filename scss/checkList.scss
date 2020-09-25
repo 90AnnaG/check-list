@@ -1,0 +1,100 @@
+@import "_mixins-project-4";
+@import "_variables";
+@import "_breakpoints";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    @include body-style;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header-container {
+    @include header-container;
+
+    &__my-gitHub {
+        @include gh-icon;
+    }
+
+    &__project-name {
+        @include project-name;
+    }
+}
+
+.main-container {
+    @include main-container-style;
+
+    &__project-description {
+        @include project-description;
+    }
+
+    .checkList-container {
+        @include checkList-container;
+
+        &__user-notification {
+            @include user-notification;
+        }
+
+        .add-task-form {
+            @include add-task-form;
+
+            &__input {
+                @include form-input;
+            }
+
+            &__button {
+                @include form-button;
+            }
+
+            &__button:hover {
+                background-color: #44717e;
+                color           : #fff;
+            }
+        }
+
+        .user-task-container {
+            @include user-task-container;
+
+            ul {
+                @include user-task-list;
+            }
+
+            li {
+                @include user-task;
+            }
+
+            li:hover {
+                background-color: #504b4b56;
+            }
+
+            li.checked {
+                @include checked-task;
+            }
+
+            .close-task-button {
+                @include close-task-button;
+            }
+
+            .close-task-button:hover {
+                background-color: #f44336;
+                color: white;
+              }
+        }
+
+    }
+}
+
+.footer {
+    @include footer;
+
+    &__copyright {
+        @include footer-copyright;
+    }
+}

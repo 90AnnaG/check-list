@@ -1,0 +1,190 @@
+@import "_variables";
+@import "_breakpoints";
+
+@mixin body-style {
+    background-attachment: fixed;
+    background           : $body_background-color;
+    color                : #f2f2f2;
+    font-family          : 'Work Sans', sans-serif;
+    margin               : 0;
+    padding              : 0;
+    width                : 100%;
+}
+
+@mixin header-container {
+    border-bottom   : 1px solid #fff;
+    background-color: $containers_background-color;
+    display         : flex;
+    margin          : 0;
+    overflow        : auto;
+    padding         : 10px 35px 10px 10px;
+    width           : 100%;
+
+    @media (min-width: #{$screen-tablet}) {
+        height       : 70px;
+        padding-right: 60px;
+    }
+}
+
+@mixin gh-icon {
+    height: 30px;
+    margin: 0;
+    width : 30px;
+
+    @media (min-width: #{$screen-tablet}) {
+        height: 45px;
+        width : 45px;
+    }
+}
+
+@mixin project-name {
+    display       : inline-block;
+    font-family   : 'Oswald', sans-serif;
+    font-size     : 25px;
+    letter-spacing: 2px;
+    line-height   : 10px;
+    margin        : 0 auto;
+    padding       : 10px;
+    text-align    : center;
+
+    @media (min-width: #{$screen-tablet}) {
+        font-size     : 35px;
+        letter-spacing: 3px;
+        margin-top    : 10px;
+    }
+}
+
+@mixin main-container-style {
+    margin-top: 5px;
+    overflow  : auto;
+    padding   : 10px;
+}
+
+@mixin project-description {
+    font-family   : 'Oswald', sans-serif;
+    font-size     : 18px;
+    letter-spacing: 2px;
+    margin        : 0;
+    padding       : 0;
+    text-align    : center;
+
+    @media (min-width: #{$screen-tablet}) {
+        font-size     : 25px;
+        letter-spacing: 3px;
+    }
+}
+
+@mixin checkList-container {
+    width           : 100%;
+    overflow        : auto;
+    background-color: red;
+    padding         : 10px;
+}
+
+@mixin user-notification {
+    background-color: green;
+    height          : 40px;
+    width           : 100%;
+    display         : block;
+    text-align      : center;
+    padding         : 2px 0;
+    font-size       : 10px;
+}
+
+@mixin add-task-form {
+    margin-top: 5px;
+    width     : 100%;
+    height    : 45px;
+    padding   : 2px;
+}
+
+@mixin form-input {
+    width        : 200px;
+    height       : 25px;
+    border       : none;
+    border-radius: 2px;
+}
+
+@mixin form-button {
+    width           : 65px;
+    height          : 25px;
+    border          : none;
+    border-radius   : 2px;
+    background-color: #8be4ff;
+    font-size       : 15px;
+    cursor          : pointer;
+}
+
+@mixin user-task-container {
+    background-color: #557755;
+    width           : 100%;
+    overflow        : auto;
+    margin-top      : 5px;
+    padding         : 2px;
+}
+
+@mixin user-task-list {
+    background-color: #ce8484;
+    width           : 100%;
+    overflow        : auto;
+    list-style-type : none;
+    padding         : 5px;
+    margin          : 5px 0;
+}
+
+@mixin user-task {
+    display      : block;
+    font-size    : 15px;
+    margin-bottom: 3px;
+    height       : 20px;
+    cursor       : pointer;
+    width        : 100%;
+    position     : relative;
+}
+
+@mixin close-task-button {
+    background-color: #ff0000;
+    border          : none;
+    height          : 20px;
+    width           : 20px;
+    padding         : 2px;
+    margin          : 0;
+    float           : right;
+}
+
+@mixin checked-task {
+    background-color: #80a2c0e6;
+    text-decoration : line-through;
+}
+
+@mixin footer {
+    background-color: $containers_background-color;
+    height          : 15px;
+    margin-top      : 10px;
+    padding-top     : 5px;
+    position        : fixed;
+    bottom          : 0;
+    text-align      : center;
+    width           : 100%;
+
+    @media (min-width: #{$screen-tablet}) {
+        height     : 20px;
+        padding-top: 8px;
+    }
+
+    @media (min-width: #{$screen-desktop}) {
+        height: 22px;
+    }
+}
+
+@mixin footer-copyright {
+    display       : block;
+    font-size     : 8px;
+    letter-spacing: 2px;
+    line-height   : 5px;
+    margin        : auto;
+
+    @media (min-width: #{$screen-tablet}) {
+        font-size: 12px;
+    }
+}
