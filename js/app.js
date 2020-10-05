@@ -1,42 +1,72 @@
-const addTaskForm = document.querySelector('.add-task-form');
 const formInputTextarea = document.querySelector('.add-task-form__input');
-const addTaskButton = document.querySelector('add-task-form__button');
+const addTaskButton = document.querySelector('.add-task-form__button');
 const notification = document.querySelector('.checkList-container__user-notification');
-let taskListContainer = document.querySelector('.user-task-container__task-list');
-let closeTask = document.getElementsByClassName('close-task-button ');
-let userTasklist = document.querySelectorAll(".task-list__task, .checked");
-let task;
+const closeTask = document.getElementsByClassName('close-task-button');
+const taskListContainer = document.querySelector('.user-task-container__task-list');
+const userTasklist = document.getElementsByTagName('li');
 
-// Create a close button, add it to the task list
-for (task = 0; task < userTasklist.length; task++) {
-    let span = document.createElement("button");
-    let txt = document.createTextNode("\u00D7");
-    span.className = "close-task-button ";
-    span.appendChild(txt);
-    userTasklist[task].appendChild(span);
-}
+// Create a close button
+const closeTaskButton = function () {
+    let i;
+    for (i = 0; i < userTasklist.length; i++) {
+        const buttonX = document.createElement('button');
+        const buttonXtext = document.createTextNode('\u00D7');
+        buttonX.className = 'close-task-button';
+        buttonX.appendChild(buttonXtext);
+        userTasklist[i].appendChild(buttonX);
+    }
+}; closeTaskButton();
 
 // Click close button to hide the task
-for (task = 0; task < closeTask.length; task++) {
-    closeTask[task].onclick = function () {
-        let div = this.parentElement;
-        div.style.display = "none";
+const clickToCloseTask = function () {
+    for (task = 0; task < closeTask.length; task++) {
+        closeTask[task].onclick = function () {
+            let div = this.parentElement;
+            div.style.display = "none";
+        }
     }
-}
+}; clickToCloseTask();
 
-//  Add "checked" after clicking on the added task
+// Add new task
+const addTask = function () {
+    let inputValue = formInputTextarea.value;
+    let createInput = document.createTextNode(inputValue);
+    let newLiTask = document.createElement('li');
+    newLiTask.className = 'task-list__task';
+    newLiTask.appendChild(createInput);
+
+    if (inputValue === '') {
+        notification.innerHTML = 'Pole puste! Proszę wpisać nowe zadanie';
+    } else {
+        taskListContainer.appendChild(newLiTask);
+        notification.innerHTML = '';
+        // Create and add a close button to new task
+        const buttonXforNewLi = document.createElement('button');
+        const buttonXtextForNewLi = document.createTextNode('\u00D7');
+        buttonXforNewLi.className = 'close-task-button';
+        buttonXforNewLi.appendChild(buttonXtextForNewLi);
+        newLiTask.appendChild(buttonXforNewLi);
+        clickToCloseTask();
+    }
+    formInputTextarea.value = '';
+
+}; addTaskButton.onclick = addTask;
+
+//  Add class "checked" after click on the added task
 taskListContainer.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked');
     }
 }, false);
 
-// // Restricting characters entered in the list
-// function limit(element) {
-//     let max_chars = 13;
-
-//     if (element.value.length > max_chars) {
-//         element.value = element.value.substr(0, max_chars);
-//         notification.innerHTML = 'Maksymalna ilość znaków to 130!';
-//     }
-// }
+// Enter key adds new task to list
+formInputTextarea.addEventListener("keypress", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        addTaskButton.click();
+    } else if(formInputTextarea.value === '') {
+        notification.innerHTML = 'Pole puste! Proszę wpisać nowe zadanie';
+    } else {
+        notification.innerHTML = '';
+    }
+});
