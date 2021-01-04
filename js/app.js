@@ -1,6 +1,7 @@
 const formInputTextarea = document.querySelector('.add-task-form__input');
 const addTaskButton = document.querySelector('.add-task-form__button');
-const notification = document.querySelector('.checkList-container__user-notification');
+const notification = document.querySelector('.main-container__user-notification');
+let message = 'Pole puste! Proszę wpisać nowe zadanie!';
 const closeTask = document.getElementsByClassName('close-task-button');
 const taskListContainer = document.querySelector('.user-task-container__task-list');
 const userTasklist = document.getElementsByTagName('li');
@@ -36,19 +37,19 @@ const addTask = function () {
     newLiTask.appendChild(createInput);
 
     if (inputValue === '') {
-        notification.innerHTML = 'Pole puste! Proszę wpisać nowe zadanie';
+        notification.innerHTML = message;
     } else {
-        taskListContainer.appendChild(newLiTask);
-        notification.innerHTML = '';
         // Create and add a close button to new task
-        const buttonXforNewLi = document.createElement('button');
-        const buttonXtextForNewLi = document.createTextNode('\u00D7');
+        let buttonXforNewLi = document.createElement('button');
+        let buttonXtextForNewLi = document.createTextNode('\u00D7');
         buttonXforNewLi.className = 'close-task-button';
         buttonXforNewLi.appendChild(buttonXtextForNewLi);
+        taskListContainer.appendChild(newLiTask);
         newLiTask.appendChild(buttonXforNewLi);
-        clickToCloseTask();
+        notification.innerHTML = '';
     }
     formInputTextarea.value = '';
+    clickToCloseTask();
 
 }; addTaskButton.onclick = addTask;
 
@@ -59,13 +60,13 @@ taskListContainer.addEventListener('click', function (ev) {
     }
 }, false);
 
-// Enter key adds new task to list
+// Enter key add new task to list
 formInputTextarea.addEventListener("keypress", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         addTaskButton.click();
     } else if(formInputTextarea.value === '') {
-        notification.innerHTML = 'Pole puste! Proszę wpisać nowe zadanie';
+        notification.innerHTML = message;
     } else {
         notification.innerHTML = '';
     }

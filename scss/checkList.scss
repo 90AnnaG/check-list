@@ -35,12 +35,12 @@ a {
         @include project-description;
     }
 
+    &__user-notification {
+        @include user-notification;
+    }
+
     .checkList-container {
         @include checkList-container;
-
-        &__user-notification {
-            @include user-notification;
-        }
 
         .add-task-form {
             @include add-task-form;
@@ -71,7 +71,7 @@ a {
             }
 
             li:hover {
-                background-color: #504b4b56;
+                background-color: #181414c7;
             }
 
             li.checked {
