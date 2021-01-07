@@ -1,7 +1,7 @@
 const formInputTextarea = document.querySelector('.add-task-form__input');
 const addTaskButton = document.querySelector('.add-task-form__button');
 const notification = document.querySelector('.main-container__user-notification');
-let message = 'Pole puste! Proszę wpisać nowe zadanie!';
+let notificationMessage = 'Pole puste! Proszę wpisać nowe zadanie!';
 const closeTask = document.getElementsByClassName('close-task-button');
 const taskListContainer = document.querySelector('.user-task-container__task-list');
 const userTasklist = document.getElementsByTagName('li');
@@ -37,7 +37,7 @@ const addTask = function () {
     newLiTask.appendChild(createInput);
 
     if (inputValue === '') {
-        notification.innerHTML = message;
+        notification.innerHTML = notificationMessage;
     } else {
         // Create and add a close button to new task
         let buttonXforNewLi = document.createElement('button');
@@ -65,8 +65,6 @@ formInputTextarea.addEventListener("keypress", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         addTaskButton.click();
-    } else if(formInputTextarea.value === '') {
-        notification.innerHTML = message;
     } else {
         notification.innerHTML = '';
     }

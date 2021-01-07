@@ -67,33 +67,36 @@
     padding       : 0;
     text-align    : center;
 
+    @media (min-width: #{$screen-tablet}) {
+        font-size     : 22px;
+        letter-spacing: 2px;
+    }
+
     @media (min-width: #{$screen-desktop}) {
         font-size     : 25px;
         letter-spacing: 3px;
     }
 
     @media (min-width: #{$screen-LGdesktop}) {
-        font-size     : 35px;
+        font-size: 35px;
     }
 }
 
 @mixin user-notification {
-    display      : block;
-    font-size    : 10px;
-    height       : 20px;
-    margin-bottom: 10px;
-    padding      : 3px 0;
-    text-align   : center;
-    width        : 100%;
+    display   : block;
+    font-size : 8px;
+    height    : 35px;
+    margin    : 0 auto 10px auto;
+    padding   : 3px 0;
+    text-align: center;
+    width     : 90%;
 
     @media (min-width: #{$screen-tablet}) {
-        height        : 25px;
         font-size     : 22px;
         letter-spacing: 2px;
     }
 
     @media (min-width: #{$screen-desktop}) {
-        height   : 30px;
         font-size: 25px;
     }
 }
@@ -103,27 +106,41 @@
     border-radius   : 5px;
     box-shadow      : 10px 5px 5px #070909c9;
     margin          : auto;
-    height          : 80%;
-    padding         : 10px;
+    max-height      : 85%;
+    overflow        : auto;
+    position        : relative;
+    padding         : 5px;
     width           : 90%;
+
+    @media (min-width: #{$screen-tablet}) {
+        max-height: 90%;
+        padding   : 10px;
+    }
+
+    @media (min-width: #{$screen-desktop}) {
+        max-height      : 80%;
+    }
 }
 
 @mixin add-task-form {
-    height    : 45px;
-    margin-top: 5px;
+    height    : 40px;
+    margin    : auto;
     padding   : 2px 10px;
-    width     : 100%;
+    text-align: center;
+    width     : 95%;
 
     @media (min-width: #{$screen-tablet}) {
-        height: 50px;
+        height    : 50px;
+        margin-top: 10px;
     }
 }
 
 @mixin form-input {
     border       : none;
     border-radius: 3px;
+    font-size    : 9px;
     height       : 25px;
-    padding-left : 15px;
+    padding-left : 10px;
     width        : 65%;
 
     @media (min-width: #{$screen-tablet}) {
@@ -150,7 +167,7 @@
     cursor          : pointer;
     font-size       : 15px;
     height          : 25px;
-    width           : 65px;
+    width           : 60px;
 
     @media (min-width: #{$screen-tablet}) {
         font-size: 20px;
@@ -170,31 +187,26 @@
 }
 
 @mixin user-task-container {
-    margin-top: 5px;
-    overflow  : auto;
-    padding   : 2px;
-    width     : 100%;
+    overflow: auto;
+    padding : 2px;
+    width   : 100%;
 }
 
 @mixin user-task-list {
     list-style-type: none;
-    height         : 20px;
-    margin         : 10px 0;
+    margin         : 5px 0;
     padding        : 5px;
-    width          : 100%;
 }
 
 @mixin user-task {
+    border-radius: 3px;
     cursor       : pointer;
     display      : block;
     font-size    : 15px;
-    height       : 20px;
     margin-bottom: 3px;
-    width        : 98%;
 
     @media (min-width: #{$screen-tablet}) {
         font-size    : 22px;
-        height       : 25px;
         margin-bottom: 10px;
     }
 }
@@ -205,10 +217,11 @@
     border-radius   : 3px;
     cursor          : pointer;
     float           : left;
-    height          : 20px;
+    font-size       : 5px;
+    height          : 15px;
     margin-right    : 10px;
-    padding         : 2px;
-    width           : 20px;
+    padding         : 0 2px 2px 0;
+    width           : 15px;
 
     @media (min-width: #{$screen-tablet}) {
         font-size: 17px;
@@ -242,11 +255,11 @@
 }
 
 @mixin footer-copyright {
-    display       : block;
-    font-size     : 8px;
-    letter-spacing: 2px;
-    line-height   : 5px;
-    margin        : auto;
+    display    : block;
+    font-size  : 8px;
+    height     : 15px;
+    line-height: 5px;
+    margin     : auto;
 
     @media (min-width: #{$screen-tablet}) {
         font-size: 12px;
